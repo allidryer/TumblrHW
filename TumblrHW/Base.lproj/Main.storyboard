@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="jHU-dc-2TP" userLabel="containerView">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="jHU-dc-2TP" userLabel="containerView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.25882352939999997" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -207,7 +207,13 @@
                         <color key="backgroundColor" red="0.19607843137254902" green="0.25882352941176467" blue="0.33333333333333331" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="chatButton" destination="bgW-Bo-vWW" id="LtB-op-IVu"/>
+                        <outlet property="linkButton" destination="oI8-Ps-1Bb" id="5K0-c9-g9V"/>
                         <outlet property="nevermindButton" destination="au3-4l-6Vc" id="EtU-qZ-Giz"/>
+                        <outlet property="photoButton" destination="stw-eA-mjB" id="VqF-IK-eaG"/>
+                        <outlet property="quoteButton" destination="EYJ-x1-rHo" id="w2A-aT-z1P"/>
+                        <outlet property="textButton" destination="XcN-qy-e4E" id="Ear-OD-Bae"/>
+                        <outlet property="videoButton" destination="qZu-3R-27G" id="4HN-EM-ZDa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax5-vu-UVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
