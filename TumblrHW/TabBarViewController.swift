@@ -56,15 +56,6 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate {
         trendingButton.selected = false
     }
     
-//    @IBAction func onComposeButton(sender: AnyObject) {
-//        composeViewController.view.frame = containerView.frame
-//        containerView.addSubview(composeViewController.view)
-//        homeButton.selected = false
-//        searchButton.selected = false
-//        accountButton.selected = false
-//        trendingButton.selected = false
-//    }
-    
     @IBAction func onAccountButton(sender: AnyObject) {
         accountViewController.view.frame = containerView.frame
         containerView.addSubview(accountViewController.view)
