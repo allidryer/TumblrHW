@@ -16,6 +16,7 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
     @IBOutlet weak var composeButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var trendingButton: UIButton!
+    @IBOutlet weak var explorePopupImageView: UIImageView!
     
     var isPresenting: Bool = true
     
@@ -38,11 +39,17 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
         
         onHomeButton(self)
         
+        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: { () -> Void in
+            self.explorePopupImageView.transform = CGAffineTransformMakeTranslation(0, -20)
+            }) { (finished: Bool) -> Void in
+            
+            }
     }
 
     @IBAction func onHomeButton(sender: AnyObject) {
         homeViewController.view.frame = containerView.frame
         containerView.addSubview(homeViewController.view)
+        explorePopupImageView.hidden = false
         homeButton.selected = true
         searchButton.selected = false
         accountButton.selected = false
@@ -52,6 +59,7 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
     @IBAction func onSearchButton(sender: AnyObject) {
         searchViewController.view.frame = containerView.frame
         containerView.addSubview(searchViewController.view)
+        explorePopupImageView.hidden = true
         searchButton.selected = true
         homeButton.selected = false
         accountButton.selected = false
@@ -61,6 +69,7 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
     @IBAction func onAccountButton(sender: AnyObject) {
         accountViewController.view.frame = containerView.frame
         containerView.addSubview(accountViewController.view)
+        explorePopupImageView.hidden = false
         accountButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
@@ -70,11 +79,17 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
     @IBAction func onTrendingButton(sender: AnyObject) {
         trendingViewController.view.frame = containerView.frame
         containerView.addSubview(trendingViewController.view)
+        explorePopupImageView.hidden = false
         trendingButton.selected = true
         homeButton.selected = false
         searchButton.selected = false
         accountButton.selected = false
     }
+    
+    @IBAction func onComposeButton(sender: AnyObject) {
+        explorePopupImageView.hidden = false
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var destinationVC = segue.destinationViewController as ComposeViewController
@@ -113,14 +128,26 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
                     transitionContext.completeTransition(true)
             }
         } else {
+            delay(0.45) {
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
+                }
             }
         }
     }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent

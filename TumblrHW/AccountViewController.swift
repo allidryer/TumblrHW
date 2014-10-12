@@ -8,10 +8,16 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var accountImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.contentSize = CGSizeMake(320, 570)
+        scrollView.delegate = self
 
         // Do any additional setup after loading the view.
     }

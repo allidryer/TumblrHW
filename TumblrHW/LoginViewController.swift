@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  LoginViewController.swift
 //  TumblrHW
 //
 //  Created by Alli Dryer on 10/11/14.
@@ -8,23 +8,28 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UIScrollViewDelegate {
-
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var homeImageView: UIImageView!
-    @IBOutlet weak var homeSpinnerImageView: UIImageView!
-    @IBOutlet weak var homeOverlayImageView: UIImageView!
+class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        modalPresentationStyle = UIModalPresentationStyle.Custom
+        transitioningDelegate = self
+    }
+
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.delegate = self
-        scrollView.contentSize = CGSizeMake(320, 570)
+        
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func onCancelButton(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -61,18 +61,36 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             self.videoButton.center = CGPointMake(260.5, 314.5)
             }, completion: nil)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.photoButton.center = CGPointMake(160.5, -182.5)
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.45, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.textButton.center = CGPointMake(59.5, -182.5)
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.43, delay: 0.15, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.quoteButton.center = CGPointMake(260.5, -182.5)
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.4, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.chatButton.center = CGPointMake(160.5, -314.5)
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.45, delay: 0.25, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.linkButton.center = CGPointMake(59.5, -314.5)
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.43, delay: 0.3, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.videoButton.center = CGPointMake(260.5, -314.5)
+            }, completion: nil)
+
+    }
 
     @IBAction func onNeverMindButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-                ),
-            dispatch_get_main_queue(), closure)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
