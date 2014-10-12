@@ -63,11 +63,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_form" id="2Ng-z6-FcX">
-                                <rect key="frame" x="10" y="176" width="300" height="132"/>
+                                <rect key="frame" x="10" y="142" width="300" height="132"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k0c-r2-h0G">
-                                <rect key="frame" x="10" y="265" width="148" height="43"/>
+                                <rect key="frame" x="10" y="231" width="148" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,21 +77,24 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="09F-3Q-5ox">
-                                <rect key="frame" x="16" y="185" width="287" height="30"/>
+                                <rect key="frame" x="16" y="151" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" id="WQh-Se-tAJ">
+                                        <rect key="frame" x="8" y="0.0" width="273" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" id="WQh-Se-tAJ">
-                                <rect key="frame" x="26" y="184" width="273" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.25882352939999997" blue="0.33333333329999998" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="k0c-r2-h0G" id="dUC-bh-tYr"/>
+                        <outlet property="emailTextField" destination="WQh-Se-tAJ" id="jV3-ED-qeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvz-JC-dLc" userLabel="First Responder" sceneMemberID="firstResponder"/>

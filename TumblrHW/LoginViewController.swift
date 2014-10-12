@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
+    @IBOutlet weak var emailTextField: UITextField!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -21,13 +23,16 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        emailTextField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
 
     @IBAction func onCancelButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        emailTextField.resignFirstResponder()
+        delay(0.05) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +40,14 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         // Dispose of any resources that can be recreated.
     }
     
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
 
     /*
     // MARK: - Navigation
