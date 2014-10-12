@@ -64,6 +64,7 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
         homeButton.selected = false
         accountButton.selected = false
         trendingButton.selected = false
+        NSNotificationCenter.defaultCenter().postNotificationName("searchSelected", object: nil)
     }
     
     @IBAction func onAccountButton(sender: AnyObject) {
@@ -148,7 +149,6 @@ class TabBarViewController: UIViewController, UIScrollViewDelegate, UIViewContro
             dispatch_get_main_queue(), closure)
     }
 
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
